@@ -34,19 +34,13 @@ class Dimensions {
 
   static const double imageSizeExtraSeventy = 70.0;
 
+
   static const double topSpace = 30.0;
   static const double splashLogoWidth = 150.0;
+
 
   static const double chooseReviewImageSize = 40.0;
   static const double profileImageSize = 100.0;
   static const double logoHeight = 80.0;
   static const double cardHeight = 260.0;
-
-  static const double paddingSizeMedium = 15.0;
-
-  static const double paddingSizeButton = 40.0;
-  static const double paddingSizeBottomSpace = 80.0;
-  static const double bottomSpace = 160.0;
-  static const double paddingSeven = 7.0;
-  static const double fontSizeHeaderLarge = 48.0;
 }

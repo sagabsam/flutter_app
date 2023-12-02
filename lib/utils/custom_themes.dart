@@ -43,22 +43,3 @@ const robotoBold = TextStyle(
   fontSize: Dimensions.fontSizeDefault,
   fontWeight: FontWeight.w700,
 );
-
-const robotoMedium = TextStyle(
-  fontFamily: 'Ubuntu',
-  fontSize: Dimensions.fontSizeDefault,
-  fontWeight: FontWeight.w500,
-);
-
-class ThemeShadow {
-  static List<BoxShadow> getShadow(BuildContext context) {
-    List<BoxShadow> boxShadow = [
-      BoxShadow(
-          color: Theme.of(context).primaryColor.withOpacity(.2),
-          blurRadius: 5,
-          spreadRadius: 1,
-          offset: const Offset(1, 1))
-    ];
-    return boxShadow;
-  }
-}

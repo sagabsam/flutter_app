@@ -5,32 +5,8 @@ class ColorResources {
     return const Color(0xFF92C6FF);
   }
 
-  static Color mainCardTwoColor(BuildContext context) {
-    return const Color(0xFF0084CF);
-  }
-
-  static Color mainCardThreeColor(BuildContext context) {
-    return const Color(0xFF219F61);
-  }
-
-  static Color mainCardFourColor(BuildContext context) {
-    return const Color(0xFFFF6969);
-  }
-
-  static Color mainCardOneColor(BuildContext context) {
-    return Theme.of(context).primaryColor;
-  }
-
-  static Color getWhite(BuildContext context) {
-    return const Color(0xFFFFFFFF);
-  }
-
   static Color getLightSkyBlue(BuildContext context) {
     return const Color(0xFF8DBFF6);
-  }
-
-  static Color getTextColor(BuildContext context) {
-    return const Color(0xFF4B566B);
   }
 
   static Color getHarlequin(BuildContext context) {
@@ -87,10 +63,6 @@ class ColorResources {
 
   static Color getChatIcon(BuildContext context) {
     return const Color(0xFFD4D4D4);
-  }
-
-  static Color titleColor(BuildContext context) {
-    return const Color(0xFF4B566B);
   }
 
   static Color getLowGreen(BuildContext context) {

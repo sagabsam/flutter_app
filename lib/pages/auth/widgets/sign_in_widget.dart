@@ -55,7 +55,13 @@ class SignInWidgetState extends State<SignInWidget> {
           content: Text('Password'),
           backgroundColor: Colors.red,
         ));
-      } else {}
+      } else {
+        final model = LoginRequestModel(
+          email: email,
+          password: password,
+        );
+        context.read<LoginBloc>().add(LoginEvent.login(model));
+      }
     }
   }
 
@@ -117,7 +123,37 @@ class SignInWidgetState extends State<SignInWidget> {
             Container(
               margin: const EdgeInsets.only(
                   left: 20, right: 20, bottom: 20, top: 30),
-              child: CustomButton(onTap: loginUser, buttonText: 'Sign In'),
+              child: BlocConsumer<LoginBloc, LoginState>(
+                listener: (context, state) {
+                  state.maybeWhen(
+                    orElse: () {},
+                    loaded: (data) async {
+                      await AuthLocalDatasource().saveAuthData(data);
+                      Navigator.pushAndRemoveUntil(context,
+                          MaterialPageRoute(builder: (context) {
+                        return DashboardPage();
+                      }), (route) => false);
+                    },
+                    error: (message) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text(message),
+                        backgroundColor: Colors.red,
+                      ));
+                    },
+                  );
+                },
+                builder: (context, state) {
+                  return state.maybeWhen(
+                    orElse: () {
+                      return CustomButton(
+                          onTap: loginUser, buttonText: 'Sign In');
+                    },
+                    loading: () => const Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                },
+              ),
             ),
             const SizedBox(width: Dimensions.paddingSizeDefault),
             const SizedBox(width: Dimensions.paddingSizeDefault),
