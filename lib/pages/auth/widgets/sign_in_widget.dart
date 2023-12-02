@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fic7_app/pages/dashboard/dashboard_page.dart';
+import 'package:flutter_app/pages/dashboard/dashboard_page.dart';
 
 import '../../../utils/color_resources.dart';
 import '../../../utils/custom_themes.dart';
