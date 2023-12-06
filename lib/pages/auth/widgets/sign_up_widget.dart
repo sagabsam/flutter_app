@@ -158,7 +158,8 @@ class SignUpWidgetState extends State<SignUpWidget> {
               builder: (context, state) {
                 return state.maybeWhen(
                   orElse: () {
-                    return CustomButton(onTap: addUser, buttonText: 'Sign Up');
+                    return CustomButton(
+                      onTap: addUser, buttonText: 'Sign Up');
                   },
                   loading: () => const Center(
                     child: CircularProgressIndicator(),

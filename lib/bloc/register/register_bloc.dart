@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/src/material/snack_bar.dart';
+import 'package:flutter/src/material/scaffold.dart';
 import 'package:flutter_app/data/datasources/auth_remote_datasource.dart';
 import 'package:flutter_app/data/models/auth_response_model.dart';
 import 'package:flutter_app/data/models/request/register_request_model.dart';
