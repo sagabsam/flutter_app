@@ -27,13 +27,7 @@ class _HomePageState extends State<DashboardPage> {
       });
     });
     _screens = [
-      const Center(
-        child: Column(
-          children: [
-            Text('Home'),
-          ],
-        ),
-      ),
+      Homepage(),
       const Center(
         child: Text('Order'),
       ),
