@@ -42,6 +42,15 @@ dependencies:
   http: ^0.13.6
   dartz: ^0.10.1
   shimmer: ^3.0.0
+  flutter_driver:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  fuchsia: ^0.0.0
+  process: ^4.2.4
+  sync_http: ^0.3.1
+  vm_service: ^9.4.0
+  webdriver: ^3.0.1
   
 
 dev_dependencies:

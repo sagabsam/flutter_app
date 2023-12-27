@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter_fic7_app/data/datasources/product_remote_datasource.dart';
-import 'package:flutter_fic7_app/data/models/products_response_model.dart';
+import 'package:flutter_app/data/datasources/product_remote_datasource.dart';
+import 'package:flutter_app/data/models/products_response_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'products_event.dart';
