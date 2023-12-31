@@ -1,62 +1,65 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_app/pages/product/category_products_page.dart';
 
-import '../../../bloc/categories/categories_bloc.dart';
-import 'category_item_widget.dart';
-
-class CategoryWidget extends StatelessWidget {
-  const CategoryWidget({
+import '../../../data/models/categories_response_model.dart';
+import '../../../utils/color_resources.dart';
+import '../../../utils/custom_themes.dart';
+import '../../../utils/dimensions.dart';
+import '../../../utils/images.dart';
+class CategoryItemWiget extends StatelessWidget {
+  final Category category;
+  const CategoryItemWiget({
     Key? key,
+    required this.category,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CategoriesBloc, CategoriesState>(
-      builder: (context, state) {
-        return state.maybeWhen(
-          orElse: () {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          },
-          error: (message) {
-            return Center(
-              child: Text(message),
-            );
-          },
-          loaded: (model) {
-            return GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4,
-                crossAxisSpacing: 15,
-                mainAxisSpacing: 5,
-                childAspectRatio: (1 / 1.3),
-              ),
-              itemCount: model.data!.length,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (BuildContext context, int index) {
-                return InkWell(
-                  onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (_) => const CategoryProductsPage(
-                    //       isBrand: false,
-                    //       id: '1',
-                    //     ),
-                    //   ),
-                    // );
-                  },
-                  child: CategoryItemWiget(
-                    category: model.data![index],
-                  ),
-                );
-              },
-            );
-          },
-        );
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return CategoryProductsPage(
+            id: category.id!,
+            name: category.name!,
+          );
+        }));
       },
+      child: Column(children: [
+        Container(
+          height: MediaQuery.of(context).size.width / 5,
+          width: MediaQuery.of(context).size.width / 5,
+          decoration: BoxDecoration(
+            border: Border.all(
+                color: Theme.of(context).primaryColor.withOpacity(.2)),
+            borderRadius: BorderRadius.circular(Dimensions.paddingSizeSmall),
+            color: Theme.of(context).highlightColor,
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(Dimensions.paddingSizeSmall),
+            child: FadeInImage.assetNetwork(
+              fit: BoxFit.cover,
+              placeholder: Images.placeholder,
+              image: 'https://picsum.photos/20${category.id}',
+              imageErrorBuilder: (c, o, s) => Image.asset(
+                Images.placeholder,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: Dimensions.paddingSizeExtraSmall),
+        Center(
+          child: Text(
+            category.name ?? '-',
+            textAlign: TextAlign.center,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: titilliumRegular.copyWith(
+                fontSize: Dimensions.fontSizeSmall,
+                color: ColorResources.getTextTitle(context)),
+          ),
+        ),
+      ]),
     );
   }
 }
