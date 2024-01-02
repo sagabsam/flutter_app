@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/dashboard/dashboard_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:flutter_app/pages/dashboard/seller_dashboard_page.dart';
 import '../../../bloc/login/login_bloc.dart';
 import '../../../data/datasources/auth_local_datasource.dart';
 import '../../../data/models/request/login_request_model.dart';
+
 import '../../../utils/color_resources.dart';
+import '../../../data/datasources/auth_remote_datasource.dart';
+import '../../../data/datasources/firebase_messaging_remote_datasource.dart';
 import '../../../utils/custom_themes.dart';
 import '../../../utils/dimensions.dart';
 import '../../base_widgets/button/custom_button.dart';
@@ -133,9 +136,10 @@ class SignInWidgetState extends State<SignInWidget> {
                     orElse: () {},
                     loaded: (data) async {
                       await AuthLocalDatasource().saveAuthData(data);
+                      await FirebaseMessagingRemoteDatasource().initNotification();
                       Navigator.pushAndRemoveUntil(context,
                           MaterialPageRoute(builder: (context) {
-                        return DashboardPage();
+                        return SellerDashboardPage();
                       }), (route) => false);
                     },
                     error: (message) {
