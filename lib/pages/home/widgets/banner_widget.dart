@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 import '../../../utils/color_resources.dart';
+import '../../../utils/images.dart';
+import '../../../bloc/banners/banners_bloc.dart';
 
 class BannerWidget extends StatelessWidget {
   const BannerWidget({super.key});

@@ -6,6 +6,7 @@ import 'package:flutter_app/bloc/logout/logout_bloc.dart';
 import 'package:flutter_app/data/datasources/auth_local_datasource.dart';
 import 'package:flutter_app/bloc/order/order_bloc.dart';
 import 'package:flutter_app/bloc/checkout/checkout_bloc.dart';
+import 'package:flutter_app/bloc/banners/banners_bloc.dart';
 import 'package:flutter_app/pages/auth/auth_page.dart';
 import 'package:flutter_app/pages/dashboard/dashboard_page.dart';
 import 'package:flutter_app/pages/splash/splash_page.dart';
